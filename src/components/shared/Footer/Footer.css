@@ -1,0 +1,34 @@
+.footer{
+    padding: 50px 0;
+    background: black;
+}
+.footer_item ul li{
+    margin-bottom: 15px;
+}
+.footer_item ul li .icon{
+    font-size: 18px;
+    margin-right: 15px;
+    display: inline-block;
+    color: var(--primary-color);
+}
+.footer_item ul li a{
+    color: white;
+}
+.subscribe_field {
+    position: relative;
+}
+.subscribe_field input {
+    padding: 7px;
+    width: 100%;
+}
+.subscribe_field span {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px;
+}

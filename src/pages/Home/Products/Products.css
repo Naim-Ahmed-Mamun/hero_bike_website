@@ -1,0 +1,25 @@
+.products{
+    padding: 100px 0;
+}
+.card_img{
+    position: relative;
+}
+.card_img .price{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--primary-color);
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+}
+.card_text .card-title{
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--dark-color);
+    margin: 15px 0;
+    line-height: 28px;
+}
+.card_text p{
+    color: var(--paragraph-color);
+}
