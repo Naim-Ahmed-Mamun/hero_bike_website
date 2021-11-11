@@ -3,9 +3,10 @@ import Rating from 'react-rating';
 import './Testimonial.css';
 
 const Testimonial = () => {
+   // testimonial state
    const [testimonials, setTestimonials] = useState([]);
    useEffect(() => {
-      fetch('http://localhost:5000/review')
+      fetch('https://vast-shelf-14740.herokuapp.com/review')
          .then(res => res.json())
          .then(data => setTestimonials(data))
    }, [])
@@ -20,8 +21,8 @@ const Testimonial = () => {
                   {
                      testimonials.map(testimonial => {
                         return (
-                           <div key={testimonial._id} className="col-lg-4">
-                              <div className="p-3 shasow">
+                           <div key={testimonial._id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                              <div className="p-3 shadow testimonial rounded">
                                  <p>{testimonial?.review}</p>
                                  <h3>{testimonial?.name}</h3>
                                  <Rating

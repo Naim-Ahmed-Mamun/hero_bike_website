@@ -7,7 +7,7 @@ const AddProduct = () => {
    const { register, handleSubmit,reset } = useForm();
    const onSubmit = data => {
       data.status = 'pending'
-      fetch('http://localhost:5000/addProduct',{
+      fetch('https://vast-shelf-14740.herokuapp.com/addProduct',{
          method:'POST',
          headers:{
             'content-type':'application/json'

@@ -1,20 +1,30 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Products.css';
 
 const Products = () => {
-   const [products, setProducts] = useState([])
+   // product state
+   const [products, setProducts] = useState([]);
+   // spinner
+   const [loading,setLoading] = useState(true)
    useEffect(() => {
-      fetch('http://localhost:5000/products')
+      fetch('https://vast-shelf-14740.herokuapp.com/products')
          .then(res => res.json())
          .then(data => {
-            console.log(data);
-            setProducts(data)
+            // console.log(data);
+            setProducts(data);
+            setLoading(false)
          })
-   }, [])
+   }, []);
    return (
       <>
+      {
+         loading && <div className="text-center">
+             <Spinner className="text-center" animation="border" />
+         </div>
+      }
          <section className="products">
             <div className="container">
                <div className="sec_title mb-4">
@@ -24,10 +34,10 @@ const Products = () => {
                   {
                      products.map(product => {
                         return (
-                           <div className="col-lg-4 mb-4">
-                              <Card key={product?._id}>
+                           <div key={product?._id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                              <Card>
                                  <div className="card_img">
-                                    <Card.Img variant="top" src={product?.imgUrl} />
+                                    <Card.Img className="img-fluid" variant="top" src={product?.imgUrl} />
                                     <h5 className="price">${product?.price}</h5>
                                  </div>
                                  <Card.Body className="card_text">
@@ -35,7 +45,9 @@ const Products = () => {
                                     <Card.Text>
                                        {product?.description.slice(1,80)}....
                                     </Card.Text>
-                                    <Button className="regular_btn">Book Now</Button>
+                                    <Link to={`bookProduct/${product._id}`}>
+                                       <Button className="regular_btn">Book Now</Button>
+                                    </Link>
                                  </Card.Body>
                               </Card>
                            </div>

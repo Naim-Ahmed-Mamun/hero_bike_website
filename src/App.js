@@ -6,6 +6,10 @@ import AllProducts from './pages/AllProducts/AllProducts';
 import AuthProvider from './context/AuthProvider';
 import Login from './components/shared/Login/Login/Login';
 import Register from './components/shared/Register/Register';
+import BookProduct from './components/BookProduct/BookProduct';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import NotFound from './components/NotFound/NotFound';
+import About from './pages/About/About';
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>
@@ -30,6 +37,12 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <PrivateRoute path="/bookProduct/:id">
+              <BookProduct></BookProduct>
+            </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

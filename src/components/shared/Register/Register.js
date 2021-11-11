@@ -3,14 +3,19 @@ import loginImg from '../../../img/register-img.svg';
 import { useForm } from "react-hook-form";
 import './Register.css';
 import Header from '../../shared/Header/Header';
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
-   const { register, handleSubmit, } = useForm();
+   // use form
+   const { register, handleSubmit, reset} = useForm();
+   // auth
    const {registerUser} = useAuth();
+   // history
+   const history = useHistory()
+   // submit form
    const onSubmit = data => {
-      registerUser(data.email,data.password,data.name)
+      registerUser(data.email,data.password,data.name,reset,history)
       console.log(data)
    };
 
@@ -29,7 +34,7 @@ const Register = () => {
                      <div className="form_container">
                         <h2 className="text-center mb-4">Register</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                           <input type="text" {...register("name")} placeholder="Email" />
+                           <input type="text" {...register("name")} placeholder="Name" />
                            <input type="email" {...register("email")} placeholder="Email" />
                            <input type="password" {...register("password")} placeholder="Password" />
                            <input type="submit" value="Register" />

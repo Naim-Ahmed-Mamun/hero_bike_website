@@ -10,7 +10,7 @@ const Review = () => {
    const onSubmit = data => {
       data.name = user?.displayName;
       data.email = user?.email;
-      fetch('http://localhost:5000/review', {
+      fetch('https://vast-shelf-14740.herokuapp.com/review', {
          method: 'POST',
          headers: {
             'content-type': 'application/json'

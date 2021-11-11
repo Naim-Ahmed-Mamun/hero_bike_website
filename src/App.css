@@ -5,7 +5,7 @@
   --primary-color:#fa3e2c;
   --secondary-color:#f97c37;
   --paragraph-color:#777777;
-  --dark-color:#151413;
+  --dark-color:#122033;
 }
 
 /* ---global css start--- */
@@ -32,11 +32,11 @@ a{
   padding: 10px 25px;
   border-radius: 8px;
   border: none;
-  background: #61ce70;
+  background: var(--primary-color);
   transition: 0.3s ease;
   color: white;
 }
 .regular_btn:hover{
-  background: var(--primary-color);
+  background: var(--dark-color);
 }
 /* ---global css end--- */

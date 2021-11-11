@@ -1,3 +1,9 @@
 .testimonial{
     padding: 0 0 100px;
 }
+.testimonial p{
+    color: var(--paragraph-color);
+}
+.testimonial span {
+    color: #ff9900;
+}

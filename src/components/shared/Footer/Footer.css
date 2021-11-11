@@ -1,6 +1,6 @@
 .footer{
     padding: 50px 0;
-    background: black;
+    background: var(--dark-color);
 }
 .footer_item ul li{
     margin-bottom: 15px;
@@ -31,4 +31,19 @@
     align-items: center;
     justify-content: center;
     padding: 13px;
+}
+
+/* -----media query------------- */
+
+/* ---- mobile device---------- */
+@media (max-width:576px){
+    .footer_item {
+        margin-bottom: 35px;
+    }
+    .footer_item p {
+        max-width: 300px;
+    }
+    .subscribe_field {
+        max-width: 300px;
+    }
 }

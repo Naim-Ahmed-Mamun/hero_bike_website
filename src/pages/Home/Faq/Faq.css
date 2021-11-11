@@ -1,0 +1,12 @@
+.faq{
+    padding: 0 0 100px;
+}
+
+/* -----media query------------- */
+
+/* ----small mobile device---------- */
+@media (max-width:375px){
+    .faq_img {
+        padding-top: 50px;
+    }
+}

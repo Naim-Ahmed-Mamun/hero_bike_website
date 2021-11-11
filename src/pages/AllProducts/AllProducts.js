@@ -1,26 +1,38 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Header from '../../components/shared/Header/Header';
 import './AllProducts.css';
 
 const AllProducts = () => {
+   // all products
    const [allProducts, setAllProducts] = useState([]);
+   // spinner
+   const [loading, setLoading] = useState(true);
    useEffect(() => {
-      fetch('http://localhost:5000/allProducts')
+      fetch('https://vast-shelf-14740.herokuapp.com/allProducts')
          .then(res => res.json())
-         .then(data => setAllProducts(data))
+         .then(data => {
+            setAllProducts(data);
+            setLoading(false)
+         })
    }, [])
    // console.log(allProducts);
    return (
       <>
-      <Header></Header>
+         <Header></Header>
          <section className="all_products">
             <div className="container">
                <div className="sec_title mb-5">
-                  <h2>ALl Products</h2>
+                  <h2>All Products</h2>
                </div>
                <div className="row">
+                  {
+                     loading && <div className="text-center">
+                        <Spinner className="text-center" animation="border" />
+                     </div>
+                  }
                   {
                      allProducts.map(product => {
                         return (
@@ -35,7 +47,9 @@ const AllProducts = () => {
                                     <Card.Text>
                                        {product?.description.slice(1, 80)}....
                                     </Card.Text>
-                                    <Button className="regular_btn">Book Now</Button>
+                                    <Link to={`bookProduct/${product._id}`}>
+                                       <Button className="regular_btn">Book Now</Button>
+                                    </Link>
                                  </Card.Body>
                               </Card>
                            </div>

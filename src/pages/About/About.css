@@ -1,0 +1,35 @@
+.about_us{
+    padding: 100px 0;
+}
+.about_content h2{
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+.about_content p{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--paragraph-color);
+    margin-bottom: 20px;
+}
+.about_list li{
+    margin-bottom: 10px;
+}
+.about_list li .icon{
+    color: var(--primary-color);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* -----media query------------- */
+
+/* ----small mobile device---------- */
+@media (max-width:576px){
+    .about_wrapper{
+        flex-direction: column-reverse;
+    }
+    ul.about_list {
+        margin-bottom: 30px !important;
+    }
+}

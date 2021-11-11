@@ -35,3 +35,26 @@
         transform: translateX(10px);
     }
 }
+
+/* -----media query------------- */
+
+/* ----mobile device---------- */
+@media (min-width:375px) and (max-width:576px){
+    .hero_content h2 {
+        font-size: 62px;
+        line-height: 70px;
+    }
+    .hero_img {
+        padding-top: 50px;
+    }
+}
+/* ----small mobile device---------- */
+@media (max-width:375px){
+    .hero_content h2 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .hero_img {
+        padding-top: 50px;
+    }
+}

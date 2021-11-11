@@ -3,13 +3,21 @@
 }
 .card_img{
     position: relative;
+    overflow: hidden;
+}
+.card_img img{
+    transition: 0.3s;
+    height: 350px;
+}
+.card_img img:hover{
+    transform: scale(1.1);
 }
 .card_img .price{
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: var(--primary-color);
-    padding: 8px;
+    top: 5px;
+    left: 5px;
+    background: #61ce70;
+    padding: 7px 5px;
     color: white;
     border-radius: 5px;
 }
@@ -22,4 +30,29 @@
 }
 .card_text p{
     color: var(--paragraph-color);
+}
+.sec_title h2{
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+.sec_title h2::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: -5px;
+}
+
+/* -----media query------------- */
+
+/* ----small mobile device---------- */
+@media (max-width:375px){
+    .card_img img {
+        height: 300px;
+    }
 }

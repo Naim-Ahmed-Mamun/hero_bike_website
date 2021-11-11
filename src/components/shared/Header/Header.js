@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -6,10 +6,23 @@ import logo from '../../../img/logo.png';
 import './Header.css';
 
 const Header = () => {
+   // use auth
    const { user, logout } = useAuth()
+   // sticky state
+   const [sticky,setSticky] = useState(false);
+   const stickyNavbar = () => {
+      if(window.scrollY > 50){
+         setSticky(true)
+      }
+      else{
+         setSticky(false)
+      }
+   }
+   window.addEventListener('scroll',stickyNavbar);
+
    return (
       <>
-         <div className="navBar_container">
+         <div className={sticky ? 'sticky navBar_container':'navBar_container'}>
             <Navbar collapseOnSelect expand="lg" variant="dark">
                <Container>
                   <NavLink to="/home"><img src={logo} alt="" /></NavLink>

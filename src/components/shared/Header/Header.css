@@ -1,4 +1,18 @@
-
+.navBar_container{
+    padding: 5px 0;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+    transition: 0.3s;
+}
+.sticky{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+    z-index: 99;
+    transition: 0.3s;
+}
 .nav_menu .nav_link{
     display: inline-block;
     font-size: 18px;
@@ -8,4 +22,33 @@
 }
 .navbar-nav {
     align-items: center;
+}
+.nav_menu span{
+    font-weight: 500;
+}
+
+
+/* -----media query------------- */
+
+/* -----navbar responsive--------- */
+@media (max-width:991px){
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url(../../../img/menubar.svg) !important;
+    }
+    .navbar-nav {
+        align-items: flex-start;
+        padding: 20px 10px 10px;
+    }
+    .nav_menu .nav_link {
+        margin: 0 15px 10px;
+    }
+   
+}
+
+/* ----small mobile device---------- */
+@media (max-width:375px){
+    .hero_content h2 {
+        font-size: 48px;
+        line-height: 60px;
+    }
 }

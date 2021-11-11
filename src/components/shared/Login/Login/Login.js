@@ -3,15 +3,22 @@ import loginImg from '../../../../img/login-img.svg';
 import { useForm } from "react-hook-form";
 import './Login.css';
 import Header from '../../Header/Header';
-import { Link } from 'react-router-dom';
+import { Link,useLocation,useHistory } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
 
 const Login = () => {
+   // use form
    const { register, handleSubmit, } = useForm();
+   // auth
    const {loginUser} = useAuth()
+   // location
+   const location = useLocation()
+   // history
+   const history = useHistory()
+   // submit
    const onSubmit = data => {
       console.log(data)
-      loginUser(data.email,data.password)
+      loginUser(data.email,data.password,location,history)
    };
 
    return (
