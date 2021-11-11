@@ -27,14 +27,14 @@ const Products = () => {
       }
          <section className="products">
             <div className="container">
-               <div className="sec_title mb-4">
+               <div className="sec_title mb-4" data-aos="fade-up">
                   <h2>New Products</h2>
                </div>
                <div className="row">
                   {
                      products.map(product => {
                         return (
-                           <div key={product?._id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                           <div key={product?._id} className="col-lg-4 col-md-6 col-sm-12 mb-4" data-aos="fade-up">
                               <Card>
                                  <div className="card_img">
                                     <Card.Img className="img-fluid" variant="top" src={product?.imgUrl} />

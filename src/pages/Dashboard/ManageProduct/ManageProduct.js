@@ -41,7 +41,7 @@ const ManageProduct = () => {
    }
    return (
       <>
-         <h3 className="text-center my-5 text-danger"> Manage Products </h3>
+         <h3 className="text-center my-5 text-danger" data-aos="fade-up"> Manage Products </h3>
          <div className="container">
             <div className="row">
                {
@@ -52,7 +52,7 @@ const ManageProduct = () => {
                {
                   manageAllProducts.map(product => {
                      return (
-                        <div key={product._id} className="col-lg-6 mb-4">
+                        <div key={product._id} className="col-lg-6 mb-4" data-aos="fade-up">
                            <Card>
                               <div className="card_img">
                                  <Card.Img variant="top" src={product?.imgUrl} />

@@ -14,10 +14,10 @@ const Testimonial = () => {
       <>
          <div className="testimonial">
             <div className="container">
-               <div className="sec_title mb-4">
+               <div className="sec_title mb-4" data-aos="fade-up">
                   <h2>Testimonial</h2>
                </div>
-               <div className="row">
+               <div className="row" data-aos="fade-up">
                   {
                      testimonials.map(testimonial => {
                         return (

@@ -8,11 +8,11 @@ const Faq = () => {
       <>
          <section className="faq">
             <div className="container">
-               <div className="sec_title mb-4">
+               <div className="sec_title mb-4" data-aos="fade-up">
                   <h2>FAQ</h2>
                </div>
                <div className="row align-items-center">
-                  <div className="col-lg-7">
+                  <div className="col-lg-7" data-aos="fade-up">
                      <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="0">
                            <Accordion.Header>What’s the difference between a mountain bike and a road bike?</Accordion.Header>
@@ -40,7 +40,7 @@ const Faq = () => {
                         </Accordion.Item>
                      </Accordion>
                   </div>
-                  <div className="col-lg-5">
+                  <div className="col-lg-5" data-aos="fade-up">
                      <div className="faq_img">
                         <img src={faqImg} alt="" />
                      </div>

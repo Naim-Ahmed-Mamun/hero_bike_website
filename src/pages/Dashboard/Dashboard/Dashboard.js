@@ -27,7 +27,9 @@ const Dashboard = () => {
    return (
       <>
          <div className="d-flex">
+
                <div onClick={() => setToggle(!toggle)} className="menubar"><img src={menubar} alt="" /></div>
+
             <div className={toggle ? "showSidebar" : "sidebar_left_side"}>
                <div className="dashboard_logo mb-5">
                   <NavLink to="/home"><img src={logo} alt="" /></NavLink>
@@ -83,7 +85,7 @@ const Dashboard = () => {
                   </NavLink>
                </ul>
             </div>
-            <div className="dash_right_side">
+            <div className="dash_right_side" data-aos="fade-up">
                {/* <div className="dash_nav"></div> */}
                <Switch>
                   <Route exact path={`${path}`}>
@@ -95,18 +97,18 @@ const Dashboard = () => {
                   <Route exact path={`${path}/review`}>
                      <Review></Review>
                   </Route>
-                  <Route exact path={`${path}/manageAllOrder`}>
+                  <AdminRoute exact path={`${path}/manageAllOrder`}>
                      <ManageAllOrder></ManageAllOrder>
-                  </Route>
+                  </AdminRoute>
                   <AdminRoute exact path={`${path}/addProduct`}>
                      <AddProduct></AddProduct>
                   </AdminRoute>
                   <AdminRoute exact path={`${path}/makeAdmin`}>
                      <MakeAdmin></MakeAdmin>
                   </AdminRoute>
-                  <Route exact path={`${path}/manageProduct`}>
+                  <AdminRoute exact path={`${path}/manageProduct`}>
                      <ManageProduct></ManageProduct>
-                  </Route>
+                  </AdminRoute>
                </Switch>
             </div>
          </div>

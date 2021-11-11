@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home/Home/Home';
@@ -10,8 +11,16 @@ import BookProduct from './components/BookProduct/BookProduct';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 import About from './pages/About/About';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
+  // data aos
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+    });
+  },[])
   return (
     <>
       <AuthProvider>

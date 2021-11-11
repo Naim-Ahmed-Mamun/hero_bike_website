@@ -29,10 +29,10 @@ const Header = () => {
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
                      <Nav className="ms-auto nav_menu">
-                        <NavLink className="nav_link" to="/home">Home</NavLink>
-                        <NavLink className="nav_link" to="/about">About</NavLink>
-                        <NavLink className="nav_link" to="/allProducts">All Products</NavLink>
-                        {user.email && <NavLink className="nav_link" to="/dashboard">Dashboard</NavLink>}
+                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/home">Home</NavLink>
+                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/about">About</NavLink>
+                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/allProducts">All Products</NavLink>
+                        {user.email && <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/dashboard">Dashboard</NavLink>}
                         {
                            user?.email ? <span>Hi! {user?.displayName}
                               <button onClick={logout} className="regular_btn ms-2">Logout</button>

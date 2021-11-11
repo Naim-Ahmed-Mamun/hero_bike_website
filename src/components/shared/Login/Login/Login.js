@@ -27,12 +27,12 @@ const Login = () => {
          <div className="login">
             <div className="container">
                <div className="row align-items-center">
-                  <div className="col-lg-6">
+                  <div className="col-lg-6" data-aos="fade-up">
                      <div className="login_img">
                         <img src={loginImg} alt="" />
                      </div>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-lg-6" data-aos="fade-up">
                      <div className="form_container">
                      <h2 className="text-center mb-4">Login</h2>
                         <form onSubmit={handleSubmit(onSubmit)}>

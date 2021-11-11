@@ -58,7 +58,7 @@ const ManageAllOrder = () => {
    }
    return (
       <>
-         <h3 className="text-center my-5 text-danger"> Manage All Order </h3>
+         <h3 className="text-center my-5 text-danger" data-aos="fade-up"> Manage All Order </h3>
          <div className="container">
             <div className="row">
                {
@@ -69,7 +69,7 @@ const ManageAllOrder = () => {
                {
                   allOrders.map(order => {
                      return (
-                        <div key={order._id} className="col-lg-6">
+                        <div key={order._id} className="col-lg-6" data-aos="fade-up">
                            <div className="card product_card mb-3">
                               <div className="row g-0">
                                  <div className="col-md-4 order_img">

@@ -12,16 +12,16 @@ const About = () => {
       <Header></Header>
       <div className="about_us">
         <div className="container">
-          <div className="sec_title mb-4">
+          <div className="sec_title mb-4" data-aos="fade-up">
             <h2>About Us</h2>
           </div>
           <div className="row align-items-center about_wrapper">
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="about_img">
                 <img src={about_img} alt="" />
               </div>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-up">
               <div className="about_content">
                 <div className="about_title">
                   <h2>Advantages of our company</h2>

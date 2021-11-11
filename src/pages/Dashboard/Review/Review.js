@@ -35,9 +35,9 @@ const Review = () => {
    return (
       <>
          <div>
-            <h3 className="text-center my-5 text-danger">Review Your Order</h3>
+            <h3 className="text-center my-5 text-danger" data-aos="fade-up">Review Your Order</h3>
             <div className="review_form">
-               <div className="form_container">
+               <div className="form_container" data-aos="fade-up">
                   <form onSubmit={handleSubmit(onSubmit)}>
                      <input defaultValue={user?.displayName} {...register("name")} placeholder="Product Name" />
                      <input defaultValue={user?.email} {...register("email")} placeholder="Email" />

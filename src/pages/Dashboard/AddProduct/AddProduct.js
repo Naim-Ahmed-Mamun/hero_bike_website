@@ -28,8 +28,8 @@ const AddProduct = () => {
       console.log(data)
    };
    return (
-      <div className="add_product">
-         <h3 className="text-center mb-4 text-danger">Add Product</h3>
+      <div className="add_product" data-aos="fade-up">
+         <h3 className="text-center mb-4 text-danger" data-aos="fade-up">Add Product</h3>
          <div className="form_container">
             <form onSubmit={handleSubmit(onSubmit)}>
                <input {...register("productName")} placeholder="Product Name" />

@@ -2,6 +2,17 @@
     padding: 0 0 100px;
 }
 
+.accordion-item {
+    margin-bottom: 15px;
+    border: none;
+}
+.accordion-body{
+    background: #eee;
+}
+.accordion-button {
+    border: 1px solid gray !important;
+    border-radius: 5px !important;
+}
 /* -----media query------------- */
 
 /* ----small mobile device---------- */
