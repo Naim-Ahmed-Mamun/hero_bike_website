@@ -88,9 +88,9 @@ const Dashboard = () => {
             <div className="dash_right_side" data-aos="fade-up">
                {/* <div className="dash_nav"></div> */}
                <Switch>
-                  <Route exact path={`${path}`}>
+                  {!admin && <Route exact path={`${path}`}>
                      <Pay></Pay>
-                  </Route>
+                  </Route>}
                   <Route exact path={`${path}/myOrder`}>
                      <MyOrder></MyOrder>
                   </Route>

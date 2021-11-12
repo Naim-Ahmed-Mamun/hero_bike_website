@@ -8,7 +8,7 @@ const Products = () => {
    // product state
    const [products, setProducts] = useState([]);
    // spinner
-   const [loading,setLoading] = useState(true)
+   const [loading, setLoading] = useState(true)
    useEffect(() => {
       fetch('https://vast-shelf-14740.herokuapp.com/products')
          .then(res => res.json())
@@ -20,17 +20,17 @@ const Products = () => {
    }, []);
    return (
       <>
-      {
-         loading && <div className="text-center">
-             <Spinner className="text-center" animation="border" />
-         </div>
-      }
          <section className="products">
             <div className="container">
                <div className="sec_title mb-4" data-aos="fade-up">
                   <h2>New Products</h2>
                </div>
                <div className="row">
+                  {
+                     loading && <div className="text-center">
+                        <Spinner className="text-center" animation="border" />
+                     </div>
+                  }
                   {
                      products.map(product => {
                         return (
@@ -43,7 +43,7 @@ const Products = () => {
                                  <Card.Body className="card_text">
                                     <Card.Title>{product?.productName}</Card.Title>
                                     <Card.Text>
-                                       {product?.description.slice(1,80)}....
+                                       {product?.description.slice(1, 80)}....
                                     </Card.Text>
                                     <Link to={`bookProduct/${product._id}`}>
                                        <Button className="regular_btn">Book Now</Button>

@@ -67,7 +67,7 @@ const MyOrder = () => {
                                     </div>
                                     <div className="col-md-8">
                                        <div className="card-body">
-                                          <h5 className="card-title">{order?.productName}</h5>
+                                          <h5 className="card-title product_title">{order?.productName}</h5>
                                           <button onClick={() => handleDelete(order._id)} className="btn btn-danger cancel">Cancel</button>
                                        </div>
                                     </div>
