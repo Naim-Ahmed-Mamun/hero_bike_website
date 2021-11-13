@@ -13,74 +13,79 @@ import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../../components/AdminRoute/AdminRoute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAmazonPay } from '@fortawesome/free-brands-svg-icons';
-import { faClipboardList, faCommentDots, faPlus, faShoppingCart, faSignOutAlt, faUser } 
-from '@fortawesome/free-solid-svg-icons';
+import { faClipboardList, faCommentDots, faPlus, faShoppingCart, faSignOutAlt, faUser }
+   from '@fortawesome/free-solid-svg-icons';
 import logo from '../../../img/footer-logo.png';
 import menubar from '../../../img/menu_bar.png';
+import { Spinner } from 'react-bootstrap';
 
 
 const Dashboard = () => {
    let { path, url } = useRouteMatch();
-   const { logout,admin } = useAuth();
-   const [toggle,setToggle] = useState(false);
+   const { logout, admin, loading } = useAuth();
+   const [toggle, setToggle] = useState(false);
 
    return (
       <>
+         {
+            loading && <div className="text-center">
+             <Spinner className="text-center" animation="border" />
+            </div>
+         }
          <div className="d-flex">
-
-               <div onClick={() => setToggle(!toggle)} className="menubar"><img src={menubar} alt="" /></div>
+            <div onClick={() => setToggle(!toggle)} className="menubar"><img src={menubar} alt="" /></div>
 
             <div className={toggle ? "showSidebar" : "sidebar_left_side"}>
                <div className="dashboard_logo mb-5">
                   <NavLink to="/home"><img src={logo} alt="" /></NavLink>
                </div>
                <ul>
-                 {!admin &&  <NavLink to={`${url}`}>
+                  {!admin && <NavLink to={`${url}`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faAmazonPay}/></i></div>
-                         <div className="title"><h4>Pay</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faAmazonPay} /></i></div>
+                        <div className="title"><h4>Pay</h4></div>
                      </li>
                   </NavLink>}
-                 {!admin && <NavLink to={`${url}/myOrder`}>
+                  {!admin && <NavLink to={`${url}/myOrder`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faShoppingCart}/></i></div>
-                         <div className="title"><h4>My Orders</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faShoppingCart} /></i></div>
+                        <div className="title"><h4>My Orders</h4></div>
                      </li>
                   </NavLink>}
-                 {!admin && <NavLink to={`${url}/review`}>
+                  {!admin && <NavLink to={`${url}/review`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faCommentDots}/></i></div>
-                         <div className="title"><h4>Review</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faCommentDots} /></i></div>
+                        <div className="title"><h4>Review</h4></div>
                      </li>
                   </NavLink>}
-                 {admin && <NavLink to={`${url}/manageAllOrder`}>
+                  {admin && <NavLink to={`${url}/manageAllOrder`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faClipboardList}/></i></div>
-                         <div className="title"><h4>Manage All Orders</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faClipboardList} /></i></div>
+                        <div className="title"><h4>Manage All Orders</h4></div>
                      </li>
                   </NavLink>}
-                 {admin && <NavLink to={`${url}/addProduct`}>
+                  {admin && <NavLink to={`${url}/addProduct`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faPlus}/></i></div>
-                         <div className="title"><h4>Add Product</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faPlus} /></i></div>
+                        <div className="title"><h4>Add Product</h4></div>
                      </li>
                   </NavLink>}
-                  {admin &&<NavLink to={`${url}/makeAdmin`}>
+                  {admin && <NavLink to={`${url}/makeAdmin`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faUser}/></i></div>
-                         <div className="title"><h4>Make Admin</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faUser} /></i></div>
+                        <div className="title"><h4>Make Admin</h4></div>
                      </li>
                   </NavLink>}
-                 {admin && <NavLink to={`${url}/manageProduct`}>
+                  {admin && <NavLink to={`${url}/manageProduct`}>
                      <li className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faClipboardList}/></i></div>
-                         <div className="title"><h4>Manage All Product</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faClipboardList} /></i></div>
+                        <div className="title"><h4>Manage All Product</h4></div>
                      </li>
                   </NavLink>}
                   <NavLink to="/login">
                      <li onClick={logout} className="sidebar_item mb-3 text-white">
-                         <div className="icon"><i><FontAwesomeIcon icon={faSignOutAlt}/></i></div>
-                         <div className="title"><h4>Logout</h4></div>
+                        <div className="icon"><i><FontAwesomeIcon icon={faSignOutAlt} /></i></div>
+                        <div className="title"><h4>Logout</h4></div>
                      </li>
                   </NavLink>
                </ul>

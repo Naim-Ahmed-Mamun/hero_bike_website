@@ -100,6 +100,7 @@ const useFirebase = () => {
         .then(data => {
             console.log(data);
             setAdmin(data.admin)
+            setLoading(false)
         })
     },[user?.email])
 

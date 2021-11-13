@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import Rating from 'react-rating';
+import useAuth from '../../../hooks/useAuth';
 import './Testimonial.css';
 
 const Testimonial = () => {
+   // auth
+   const { loading } = useAuth()
    // testimonial state
    const [testimonials, setTestimonials] = useState([]);
    useEffect(() => {
@@ -18,6 +22,11 @@ const Testimonial = () => {
                   <h2>Testimonial</h2>
                </div>
                <div className="row" data-aos="fade-up">
+                  {
+                     loading && <div className="text-center">
+                        <Spinner className="text-center" animation="border" />
+                     </div>
+                  }
                   {
                      testimonials.map(testimonial => {
                         return (
