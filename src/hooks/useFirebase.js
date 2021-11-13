@@ -52,7 +52,7 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth,email,password)
         .then(result => {
             setUser(result.user)
-            const redirect_uri = location?.state?.from || '/';
+            const redirect_uri = location?.state?.from || '/dashboard';
             Swal.fire({
                 type: 'success',
                 title: 'Login Successfully',

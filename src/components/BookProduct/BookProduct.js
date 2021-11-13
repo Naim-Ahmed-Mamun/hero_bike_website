@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useParams,useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import Header from '../shared/Header/Header';
@@ -15,6 +15,8 @@ const BookProduct = () => {
 	const { user } = useAuth();
 	// use params
 	const { id } = useParams();
+	// history
+	const history = useHistory()
 	// book product state
 	const [bookProduct, setBookProduct] = useState({});
 	useEffect(() => {
@@ -44,9 +46,10 @@ const BookProduct = () => {
 				if (data.acknowledged) {
 					Swal.fire({
 						type: 'success',
-						title: 'Order Place Successfully Plz Check Dashboard',
+						title: 'Order Place Successfully',
 					})
 					reset()
+					history.push('/dashboard/myOrder')
 				}
 				// console.log(data);
 			})
