@@ -24,10 +24,38 @@ const MyOrder = () => {
          })
    }, [userEmail]);
    // handleDelete
+   // const handleDelete = (id) => {
+   //    const proceed = window.confirm('Are you sure delete this product ? ')
+   //    if (proceed) {
+   //       fetch(`https://vast-shelf-14740.herokuapp.com/deleteOrder/${id}`, {
+   //          method: 'DELETE'
+   //       })
+   //          .then(res => res.json())
+   //          .then(data => {
+   //             console.log(data);
+   //             if (data.deletedCount) {
+   //                Swal.fire({
+   //                   type: 'success',
+   //                   title: 'Delete Successfully',
+   //                })
+   //                const remaining = myOrder.filter(order => order._id !== id);
+   //                setMyOrder(remaining)
+   //             }
+   //          })
+   //    }
+   // }
    const handleDelete = (id) => {
-      const proceed = window.confirm('Are you sure delete this product ? ')
-      if (proceed) {
-         fetch(`https://vast-shelf-14740.herokuapp.com/deleteOrder/${id}`, {
+      Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         type: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+       }).then((result) => {
+         if (result.value) {
+           fetch(`https://vast-shelf-14740.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE'
          })
             .then(res => res.json())
@@ -42,7 +70,9 @@ const MyOrder = () => {
                   setMyOrder(remaining)
                }
             })
-      }
+         }
+       })
+      
    }
    return (
       <>

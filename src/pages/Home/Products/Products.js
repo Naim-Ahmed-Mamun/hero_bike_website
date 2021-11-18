@@ -37,13 +37,13 @@ const Products = () => {
                            <div key={product?._id} className="col-lg-4 col-md-6 col-sm-12 mb-4" data-aos="fade-up">
                               <Card>
                                  <div className="card_img">
-                                    <Card.Img className="img-fluid" variant="top" src={product?.imgUrl} />
+                                    <Card.Img className="img-fluid" variant="top" src={product?.image} />
                                     <h5 className="price">${product?.price}</h5>
                                  </div>
                                  <Card.Body className="card_text">
-                                    <Card.Title>{product?.productName}</Card.Title>
+                                    <Card.Title>{product?.name}</Card.Title>
                                     <Card.Text>
-                                       {product?.description.slice(1, 80)}....
+                                       {product?.details.slice(1, 80)}....
                                     </Card.Text>
                                     <Link to={`bookProduct/${product._id}`}>
                                        <Button className="regular_btn">Book Now</Button>
