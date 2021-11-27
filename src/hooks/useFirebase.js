@@ -16,7 +16,7 @@ const useFirebase = () => {
     const auth = getAuth();
 
     // register user
-    const registerUser = (email,password,name,reset,history) => {
+    const registerUser = (email,password,name,reset,navigate) => {
         createUserWithEmailAndPassword(auth,email,password)
         .then(result => {
             const user = {email:email,displayName:name}
@@ -35,7 +35,7 @@ const useFirebase = () => {
                 type: 'success',
                 title: 'Register Successfully',
             })
-              history.push('/home')
+            navigate('/home')
             reset()
         })
         .catch(err => {
@@ -48,7 +48,7 @@ const useFirebase = () => {
     }
 
     // sign in user
-    const loginUser = (email,password,location,history) => {
+    const loginUser = (email,password,location,navigate) => {
         signInWithEmailAndPassword(auth,email,password)
         .then(result => {
             setUser(result.user)
@@ -57,7 +57,7 @@ const useFirebase = () => {
                 type: 'success',
                 title: 'Login Successfully',
             })
-            history.push(redirect_uri)
+            navigate(redirect_uri)
         })
         .catch(err => {
             setAuthError(err.message)
@@ -78,7 +78,6 @@ const useFirebase = () => {
             }
             setLoading(false)
           });
-
           return () => unsubscribe;
     },[auth])
 
@@ -95,10 +94,11 @@ const useFirebase = () => {
 
     // admin check
     useEffect(() => {
+        setLoading(true)
         fetch(`https://vast-shelf-14740.herokuapp.com/admin/${user?.email}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            console.log(data.admin);
             setAdmin(data.admin)
             setLoading(false)
         })

@@ -23,31 +23,12 @@ const MyOrder = () => {
             setLoading(false)
          })
    }, [userEmail]);
+   
    // handleDelete
-   // const handleDelete = (id) => {
-   //    const proceed = window.confirm('Are you sure delete this product ? ')
-   //    if (proceed) {
-   //       fetch(`https://vast-shelf-14740.herokuapp.com/deleteOrder/${id}`, {
-   //          method: 'DELETE'
-   //       })
-   //          .then(res => res.json())
-   //          .then(data => {
-   //             console.log(data);
-   //             if (data.deletedCount) {
-   //                Swal.fire({
-   //                   type: 'success',
-   //                   title: 'Delete Successfully',
-   //                })
-   //                const remaining = myOrder.filter(order => order._id !== id);
-   //                setMyOrder(remaining)
-   //             }
-   //          })
-   //    }
-   // }
    const handleDelete = (id) => {
       Swal.fire({
          title: 'Are you sure?',
-         text: "You won't be able to revert this!",
+         text: "You won't to delete your product",
          type: 'warning',
          showCancelButton: true,
          confirmButtonColor: '#3085d6',

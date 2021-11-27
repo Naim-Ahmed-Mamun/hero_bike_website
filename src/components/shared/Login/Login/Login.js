@@ -3,7 +3,7 @@ import loginImg from '../../../../img/login-img.svg';
 import { useForm } from "react-hook-form";
 import './Login.css';
 import Header from '../../Header/Header';
-import { Link,useLocation,useHistory } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
 
 const Login = () => {
@@ -14,11 +14,11 @@ const Login = () => {
    // location
    const location = useLocation()
    // history
-   const history = useHistory()
+   const navigate = useNavigate()
    // submit
    const onSubmit = data => {
       console.log(data)
-      loginUser(data.email,data.password,location,history)
+      loginUser(data.email,data.password,location,navigate)
    };
 
    return (

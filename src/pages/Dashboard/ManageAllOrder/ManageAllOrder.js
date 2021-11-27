@@ -20,24 +20,33 @@ const ManageAllOrder = () => {
    }, [update]);
    // handleDelete
    const handleDelete = id => {
-      const proceed = window.confirm('Are you sure delete this order')
-      if (proceed) {
-         fetch(`https://vast-shelf-14740.herokuapp.com/orderDelete/${id}`, {
-            method: 'DELETE'
-         })
-            .then(res => res.json())
-            .then(data => {
-               // console.log(data);
-               if (data.deletedCount) {
-                  Swal.fire({
-                     type: 'success',
-                     title: 'Delete Successfully',
-                  })
-                  const remaining = allOrders.filter(order => order._id !== id)
-                  setAllOrders(remaining)
-               }
+      Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         type: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+         if (result.value) {
+            fetch(`https://vast-shelf-14740.herokuapp.com/orderDelete/${id}`, {
+               method: 'DELETE'
             })
-      }
+               .then(res => res.json())
+               .then(data => {
+                  // console.log(data);
+                  if (data.deletedCount) {
+                     Swal.fire({
+                        type: 'success',
+                        title: 'Delete Successfully',
+                     })
+                     const remaining = allOrders.filter(order => order._id !== id)
+                     setAllOrders(remaining)
+                  }
+               })
+         }
+      })
    }
    // handleUpdate
    const handleUpdate = id => {

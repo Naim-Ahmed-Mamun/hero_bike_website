@@ -20,9 +20,17 @@ const ManageProduct = () => {
 
    // handleProductDelete
    const handleProductDelete = id => {
-      const proceed = window.confirm('Are you sure delete this product')
-      if (proceed) {
-         fetch(`https://vast-shelf-14740.herokuapp.com/deleteProduct/${id}`, {
+      Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't to delete your product",
+         type: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+       }).then((result) => {
+         if (result.value) {
+            fetch(`https://vast-shelf-14740.herokuapp.com/deleteProduct/${id}`, {
             method: 'DELETE'
          })
             .then(res => res.json())
@@ -37,7 +45,8 @@ const ManageProduct = () => {
                const remaining = manageAllProducts.filter(product => product._id !== id)
                setManageAllProducts(remaining)
             })
-      }
+         }
+       })
    }
    return (
       <>
@@ -55,10 +64,10 @@ const ManageProduct = () => {
                         <div key={product._id} className="col-lg-6 mb-4" data-aos="fade-up">
                            <Card>
                               <div className="card_img">
-                                 <Card.Img variant="top" src={product?.imgUrl} />
+                                 <Card.Img variant="top" src={product?.image} />
                               </div>
                               <Card.Body className="card_text">
-                                 <Card.Title>{product?.productName}</Card.Title>
+                                 <Card.Title>{product?.name}</Card.Title>
                                  <Button onClick={() => handleProductDelete(product._id)}
                                     className="regular_btn">Delete Product</Button>
                               </Card.Body>

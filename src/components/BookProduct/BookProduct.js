@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { useParams,useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import Header from '../shared/Header/Header';
 import './BookProduct.css';
 import Footer from '../shared/Footer/Footer';
+import { Spinner } from 'react-bootstrap';
 
 const BookProduct = () => {
 	// use form
@@ -15,25 +15,30 @@ const BookProduct = () => {
 	const { user } = useAuth();
 	// use params
 	const { id } = useParams();
+	// console.log(id);
 	// history
-	const history = useHistory()
+	const navigate = useNavigate();
+	// loading
+	const [loading, setLoading] = useState(true);
 	// book product state
 	const [bookProduct, setBookProduct] = useState({});
 	useEffect(() => {
 		fetch(`https://vast-shelf-14740.herokuapp.com/product/${id}`)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
-				setBookProduct(data)
+				// console.log(data);
+				setBookProduct(data);
+				setLoading(false);
 			})
 	}, [id])
 	// form submit
 	const onSubmit = data => {
 		data.name = user?.displayName;
 		data.email = user?.email;
-		data.productImg = bookProduct?.imgUrl;
-		data.productName = bookProduct?.productName;
+		data.productImg = bookProduct?.image;
+		data.productName = bookProduct?.name;
 		data.status = bookProduct?.status;
+		data.productId = id;
 		fetch('https://vast-shelf-14740.herokuapp.com/orders', {
 			method: 'POST',
 			headers: {
@@ -49,7 +54,7 @@ const BookProduct = () => {
 						title: 'Order Place Successfully',
 					})
 					reset()
-					history.push('/dashboard/myOrder')
+					navigate('/dashboard/pay')
 				}
 				// console.log(data);
 			})
@@ -63,19 +68,18 @@ const BookProduct = () => {
 				<div className="container">
 					<div className="row align-items-center">
 						<div className="col-lg-6">
+							{
+								loading && <div className="text-center">
+									<Spinner className="text-center" animation="border" />
+								</div>
+							}
 							<div>
-								<Card>
-									<div className="product_img">
-										<Card.Img variant="top" src={bookProduct?.imgUrl} />
-									</div>
-									<Card.Body>
-										<Card.Title>{bookProduct?.productName}</Card.Title>
-										<Card.Text>
-											{bookProduct?.description}
-										</Card.Text>
-										{/* <Button className="regular_btn" variant="primary">Cancel Order</Button> */}
-									</Card.Body>
-								</Card>
+								<img src={bookProduct?.image} alt="" />
+								<h5>{bookProduct?.name}</h5>
+								<div className="sec_title my-4">
+									<h2>Details</h2>
+								</div>
+								<p className="details">{bookProduct?.details}</p>
 							</div>
 						</div>
 						<div className="col-lg-6">
@@ -87,7 +91,7 @@ const BookProduct = () => {
 										<input type="email" defaultValue={user?.email} {...register("email")} placeholder="Email" />
 										<input {...register("city")} placeholder="City" />
 										<input {...register("phone")} placeholder="Phone" />
-										<input defaultValue={bookProduct?.productName} {...register("productName")} placeholder="productName" />
+										<input defaultValue={bookProduct?.name} {...register("productName")} placeholder="productName" />
 										<input type="submit" value="Place Order" />
 									</form>
 								</div>

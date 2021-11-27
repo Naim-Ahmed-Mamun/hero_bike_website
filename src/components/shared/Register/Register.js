@@ -3,7 +3,7 @@ import loginImg from '../../../img/register-img.svg';
 import { useForm } from "react-hook-form";
 import './Register.css';
 import Header from '../../shared/Header/Header';
-import { Link,useHistory } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
@@ -12,10 +12,10 @@ const Register = () => {
    // auth
    const {registerUser} = useAuth();
    // history
-   const history = useHistory()
+   const navigate = useNavigate()
    // submit form
    const onSubmit = data => {
-      registerUser(data.email,data.password,data.name,reset,history)
+      registerUser(data.email,data.password,data.name,reset,navigate)
       console.log(data)
    };
 

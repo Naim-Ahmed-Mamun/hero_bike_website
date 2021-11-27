@@ -38,6 +38,13 @@
 
 /* -----media query------------- */
 
+/* ----tablet device---------- */
+@media (min-width:768px) and (max-width:991px){
+    .hero_content h2 {
+        font-size: 62px;
+        line-height: 70px;
+    }
+}
 /* ----mobile device---------- */
 @media (min-width:375px) and (max-width:576px){
     .hero_content h2 {

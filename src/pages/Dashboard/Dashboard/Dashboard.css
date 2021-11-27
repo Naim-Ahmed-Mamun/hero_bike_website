@@ -6,7 +6,9 @@
     position: fixed;
     width: 280px;
 }
-
+.active li{
+    color: red !important;
+}
 .sidebar_item {
     display: flex;
     align-items: center;
@@ -51,12 +53,15 @@
     display: none;
     z-index: 999;
 }
-
+.userName{
+    margin: 25px 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--dark-color);
+}
 /* -----media query------------- */
 
-/* ----small mobile device---------- */
-
-@media (max-width:768px) {
+@media (max-width:991px) {
     .menubar {
         display: flex;
         cursor: pointer;
@@ -83,5 +88,11 @@
         left: 0%;
         transition: 0.5s;
         z-index: 99;
+    }
+}
+
+@media (max-width:576px){
+    .userName{
+        margin: 60px 0 30px;
     }
 }

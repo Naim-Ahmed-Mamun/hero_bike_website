@@ -4,3 +4,6 @@
 .product_img img{
     height: 450px;
 }
+.details{
+    color: var(--paragraph-color);
+}

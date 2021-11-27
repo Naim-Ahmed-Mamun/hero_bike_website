@@ -25,7 +25,19 @@
 /* -----media query------------- */
 
 /* ----small mobile device---------- */
-@media (max-width:576px){
+@media (min-width:768px) and (max-width:991px){
+    .about_content h2 {
+        font-size: 26px;
+    }
+    .about_list li .icon {
+        margin-right: 5px;
+    }
+    .about_list li span{
+        font-size: 12px;
+    }
+}
+/* ----small mobile device---------- */
+@media (max-width:768px){
     .about_wrapper{
         flex-direction: column-reverse;
     }

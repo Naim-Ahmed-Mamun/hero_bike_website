@@ -16,19 +16,19 @@ const About = () => {
             <h2>About Us</h2>
           </div>
           <div className="row align-items-center about_wrapper">
-            <div className="col-lg-6" data-aos="fade-up">
+            <div className="col-lg-6 col-md-6" data-aos="fade-up">
               <div className="about_img">
                 <img src={about_img} alt="" />
               </div>
             </div>
-            <div className="col-lg-6" data-aos="fade-up">
+            <div className="col-lg-6 col-md-6" data-aos="fade-up">
               <div className="about_content">
                 <div className="about_title">
                   <h2>Advantages of our company</h2>
                   <p>We’re a bike shop, a family and a team of riders, helping folks in New York explore their passion for cycling. Biking is more than transportation or exercise, it’s a lifestyle. Whether you need help with where to ride or are in need.</p>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 col-sm-6">
                     <ul className="about_list">
                       <li><FontAwesomeIcon className="icon" icon={faCheck} /> <span>Relax renting;</span> </li>
                       <li><FontAwesomeIcon className="icon" icon={faCheck} /> <span>Standard renting;</span> </li>
@@ -38,7 +38,7 @@ const About = () => {
                       <li><FontAwesomeIcon className="icon" icon={faCheck} /> <span>Secure & equipped;</span> </li>
                     </ul>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="col-lg-6 col-sm-6">
                     <ul className="about_list">
                       <li><FontAwesomeIcon className="icon" icon={faCheck} /> <span>Special request;</span> </li>
                       <li><FontAwesomeIcon className="icon" icon={faCheck} /> <span>Always Overhauled;</span> </li>

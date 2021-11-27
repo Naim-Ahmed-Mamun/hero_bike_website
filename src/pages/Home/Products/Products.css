@@ -50,9 +50,25 @@
 
 /* -----media query------------- */
 
+/* ----laptop device */
+@media (min-width:992px) and (max-width:1200px){
+    .card_text .card-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
 /* ----small mobile device---------- */
+@media (min-width:375px) and (max-width:991px){
+    .card_text .card-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
 @media (max-width:375px){
     .card_img img {
         height: 300px;
+    }
+    .card_text .card-title {
+        font-size: 20px;
     }
 }

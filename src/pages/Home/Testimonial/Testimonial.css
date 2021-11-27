@@ -7,9 +7,28 @@
 .testimonial span {
     color: #ff9900;
 }
-/* .slick-track{
-    width: auto !important;
+.testimonial_item{
+    height: 200px;
 }
-.slick-track .slick-slide{
-    width: auto !important;
-} */
+.slick-slide{
+    padding: 0 20px 20px;
+}
+.slick-prev:before {
+    color: green !important;
+}
+.slick-next::before {
+    color: green !important;
+}
+
+/* -----media query------------- */
+
+@media (max-width:600px) {
+    .slick-prev {
+        left: -5px !important;
+        z-index: 99;
+    }
+    .slick-next {
+        right: -5px !important;
+        z-index: 99;
+    }
+}
