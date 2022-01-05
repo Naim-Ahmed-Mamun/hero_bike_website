@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import Rating from 'react-rating';
+// import Rating from 'react-rating';
 import useAuth from '../../../hooks/useAuth';
 import './Testimonial.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import { Rating } from 'react-simple-star-rating';
 
 const Testimonial = () => {
    // auth
@@ -71,12 +72,13 @@ const Testimonial = () => {
                            <div className="p-3 shadow testimonial_item rounded">
                               <p>{testimonial?.review}</p>
                               <h3>{testimonial?.name}</h3>
-                              <Rating
+                              {/* <Rating
                                  emptySymbol="far fa-star"
                                  fullSymbol="fas fa-star"
                                  initialRating={testimonial?.rating}
                                  readonly
-                              />
+                              /> */}
+                              <Rating readonly size={30} ratingValue={testimonial?.ratings} />
                            </div>
                         </div>
                      )

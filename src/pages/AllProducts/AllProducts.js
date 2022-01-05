@@ -48,7 +48,7 @@ const AllProducts = () => {
                                     <Card.Text>
                                        {product?.details.slice(1, 80)}....
                                     </Card.Text>
-                                    <Link to={`bookProduct/${product._id}`}>
+                                    <Link to={`/bookProduct/${product._id}`}>
                                        <Button className="regular_btn">Book Now</Button>
                                     </Link>
                                  </Card.Body>

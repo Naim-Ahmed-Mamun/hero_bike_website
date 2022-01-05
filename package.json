@@ -21,6 +21,7 @@
     "react-rating": "^2.0.5",
     "react-router-dom": "6",
     "react-scripts": "4.0.3",
+    "react-simple-star-rating": "^4.0.5",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "sweetalert2-react": "^0.8.3",

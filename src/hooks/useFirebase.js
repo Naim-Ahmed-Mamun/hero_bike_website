@@ -22,7 +22,8 @@ const useFirebase = () => {
             const user = {email:email,displayName:name}
             setUser(user)
             // savedUser
-            savedUser(name,email)
+            savedUser(name,email);
+            setLoading(false);
             // update
             updateProfile(auth.currentUser, {
                 displayName: name
@@ -51,7 +52,8 @@ const useFirebase = () => {
     const loginUser = (email,password,location,navigate) => {
         signInWithEmailAndPassword(auth,email,password)
         .then(result => {
-            setUser(result.user)
+            setUser(result.user);
+            setLoading(false);
             const redirect_uri = location?.state?.from || '/dashboard';
             Swal.fire({
                 type: 'success',
