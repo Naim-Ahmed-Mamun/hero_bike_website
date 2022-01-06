@@ -1,0 +1,17 @@
+.counter_bg{
+    background: url(../../../img/counter-bg.png);
+    background-repeat: no-repeat;
+    height: 50vh;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+.counter_box .counter_no{
+    font-weight: 700;
+    font-size: 28px;
+    transform: translateY(-70px);
+}
+.counter_box .clients{
+    font-weight: 500;
+    font-size: 20px;
+}

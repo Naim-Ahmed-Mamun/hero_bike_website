@@ -24,12 +24,23 @@ const SingleBlogDetails = () => {
    const [loading,setLoading] = useState(false);
    // console.log(blogItem);
 
+   useEffect(() => {
+      fetch(`https://vast-everglades-73646.herokuapp.com/blogPost/${blogItem.title}`)
+         .then(res => res.json())
+         .then(data => {
+            setShowComment(data);
+            // console.log(data);
+            setLoading(false);
+         })
+
+   }, [blogItem.title])
+
    // submit form
    const onSubmit = data => {
       data.blogTitle = blogItem.title
       data.date = new Date();
       // console.log(data);
-      fetch('http://localhost:5000/blogPost', {
+      fetch('https://vast-everglades-73646.herokuapp.com/blogPost', {
          method: 'POST',
          headers: {
             'content-type': 'application/json'
@@ -38,31 +49,21 @@ const SingleBlogDetails = () => {
       })
          .then(res => res.json())
          .then(data => {
-            // console.log(data);
-            // setLoading(true)
-            // if(data?.acknowledged){
-              
-            // }
+            if(data.acknowledged){
+              setLoading(true)
+            }
             reset();
          })
    };
 
-   useEffect(() => {
-      fetch(`http://localhost:5000/blogPost/${blogItem.title}`)
-         .then(res => res.json())
-         .then(data => {
-            setShowComment(data);
-            console.log(data);
-            setLoading(false);
-         })
+   if(loading){
+      return <Spinner animation="grow" />
+   }
 
-   }, [blogItem.title])
-   // console.log(showComment);
-   // const date = showComment?.date;
-   // console.log(date);
-   // if(loading){
-   //    return <Spinner animation="grow" />
-   // }
+
+
+  
+
    return (
       <>
          <Header></Header>
@@ -90,14 +91,14 @@ const SingleBlogDetails = () => {
                      </div>
 
                      <div>
-                        <div className="single_blog_img">
+                        <div className="single_blog_img"  data-aos="fade-up">
                            <img src={blogItem.img} alt="" />
                         </div>
 
-                        <p className='blog_shortDesc my-3'>
+                        <p className='blog_shortDesc my-3'  data-aos="fade-up">
                            {blogItem.shortDesc}</p>
 
-                        <div className="un_order_list mb-4">
+                        <div className="un_order_list mb-4"  data-aos="fade-up">
                            <p className='list_title'>{blogItem.unOrderdListTitle}</p>
                            <ul className='p-0'>
                               <li className='mb-2'>1. {blogItem.unOrderItem_1}</li>
@@ -107,7 +108,7 @@ const SingleBlogDetails = () => {
                            </ul>
                         </div>
 
-                        <div className="order_list">
+                        <div className="order_list"  data-aos="fade-up">
                            <p className='list_title'>{blogItem.orderListTitle}</p>
                            <ol className='p-0'>
                               <li className='mb-2'>1. {blogItem.orderList_1}</li>
@@ -116,9 +117,9 @@ const SingleBlogDetails = () => {
                               <li className='mb-2'>4. {blogItem.orderList_4}</li>
                            </ol>
                         </div>
-                           <h5>{showComment?.length} Comments</h5>
+                           <h5  data-aos="fade-up">{showComment?.length} Comments</h5>
                            {
-                              showComment.map(comment => <div className='d-flex mb-4 mt-5'>
+                              showComment.map(comment => <div className='d-flex mb-4 mt-5'  data-aos="fade-up">
                                  <div className="user_comments_icon">
                                     <FontAwesomeIcon className="me-2 ms-4" icon={faUser} />
                                  </div>
@@ -131,7 +132,7 @@ const SingleBlogDetails = () => {
                            }
            
 
-                        <div className="comments_form mt-5">
+                        <div className="comments_form mt-5"  data-aos="fade-up">
                            <h4 className='mb-3'>Leave a comments</h4>
                            <form onSubmit={handleSubmit(onSubmit)}>
                               <div className="row">

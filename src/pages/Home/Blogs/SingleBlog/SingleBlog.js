@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const SingleBlog = ({ blog }) => {
    return (
       <>
-         <div className="col-lg-4 col-md-6">
+         <div className="col-lg-4 col-md-6" data-aos="fade-up">
             <Link to={`/blog/${blog.id}`}>
                <Card>
                   <div className="blog_img">
