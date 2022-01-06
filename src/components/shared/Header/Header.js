@@ -29,9 +29,9 @@ const Header = () => {
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
                      <Nav className="ms-auto nav_menu">
-                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/home">Home</NavLink>
-                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/about">About</NavLink>
-                        <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/allProducts">All Products</NavLink>
+                        <NavLink className={({ isActive }) => "nav_link" + (isActive ? " activated" : "")} to="/home">Home</NavLink>
+                        <NavLink className={({ isActive }) => "nav_link" + (isActive ? " activated" : "")} to="/about">About</NavLink>
+                        <NavLink className={({ isActive }) => "nav_link" + (isActive ? " activated" : "")} to="/allProducts">All Products</NavLink>
                         {user.email && <NavLink activeStyle={{color:"#fa3e2c"}} className="nav_link" to="/dashboard">Dashboard</NavLink>}
                         {
                            user?.email ? <span>Hi! {user?.displayName}

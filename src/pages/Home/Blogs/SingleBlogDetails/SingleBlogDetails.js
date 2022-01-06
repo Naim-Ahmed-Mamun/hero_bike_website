@@ -1,6 +1,9 @@
 import { faCalendar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import Footer from '../../../../components/shared/Footer/Footer';
@@ -15,14 +18,51 @@ const SingleBlogDetails = () => {
    const idNum = parseInt(id)
    const { blogsData } = useBlogs();
    const blogItem = blogsData.find(blog => blog.id === idNum);
-   const { register, handleSubmit } = useForm();
+   const { register, handleSubmit,reset } = useForm();
    const { user } = useAuth();
+   const [showComment, setShowComment] = useState([]);
+   const [loading,setLoading] = useState(false);
    // console.log(blogItem);
 
    // submit form
    const onSubmit = data => {
-      console.log(data);
+      data.blogTitle = blogItem.title
+      data.date = new Date();
+      // console.log(data);
+      fetch('http://localhost:5000/blogPost', {
+         method: 'POST',
+         headers: {
+            'content-type': 'application/json'
+         },
+         body: JSON.stringify(data)
+      })
+         .then(res => res.json())
+         .then(data => {
+            // console.log(data);
+            // setLoading(true)
+            // if(data?.acknowledged){
+              
+            // }
+            reset();
+         })
    };
+
+   useEffect(() => {
+      fetch(`http://localhost:5000/blogPost/${blogItem.title}`)
+         .then(res => res.json())
+         .then(data => {
+            setShowComment(data);
+            console.log(data);
+            setLoading(false);
+         })
+
+   }, [blogItem.title])
+   // console.log(showComment);
+   // const date = showComment?.date;
+   // console.log(date);
+   // if(loading){
+   //    return <Spinner animation="grow" />
+   // }
    return (
       <>
          <Header></Header>
@@ -76,18 +116,32 @@ const SingleBlogDetails = () => {
                               <li className='mb-2'>4. {blogItem.orderList_4}</li>
                            </ol>
                         </div>
+                           <h5>{showComment?.length} Comments</h5>
+                           {
+                              showComment.map(comment => <div className='d-flex mb-4 mt-5'>
+                                 <div className="user_comments_icon">
+                                    <FontAwesomeIcon className="me-2 ms-4" icon={faUser} />
+                                 </div>
+                                 <div>
+                                    <h5>{comment?.name}</h5>
+                                    <p>{new Date(comment?.date).toDateString()}</p>
+                                    <p>{comment?.comment}</p>
+                                 </div>
+                              </div>)
+                           }
+           
 
                         <div className="comments_form mt-5">
                            <h4 className='mb-3'>Leave a comments</h4>
                            <form onSubmit={handleSubmit(onSubmit)}>
                               <div className="row">
                                  <div className="col-lg-6">
-                                    <input defaultValue={user?.displayName} {...register("name")} 
-                                    required placeholder="Name" />
+                                    <input defaultValue={user?.displayName} {...register("name")}
+                                       required placeholder="Name" />
                                  </div>
                                  <div className="col-lg-6">
-                                    <input defaultValue={user?.email} {...register("email")} 
-                                    required placeholder="Email" />
+                                    <input defaultValue={user?.email} {...register("email")}
+                                       required placeholder="Email" />
                                  </div>
                               </div>
                               <textarea rows="5" {...register("comment")} required placeholder="Comment" />

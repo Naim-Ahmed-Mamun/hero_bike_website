@@ -18,3 +18,10 @@
 .comment_submit_btn{
     width: 100px;
 }
+.user_comments_icon {
+    font-size: 80px;
+    display: flex;
+    align-items: flex-start;
+    padding-right: 50px;
+    color: var(--dark-color);
+}

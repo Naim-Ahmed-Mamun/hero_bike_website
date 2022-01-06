@@ -26,7 +26,9 @@
 .nav_menu span{
     font-weight: 500;
 }
-
+.activated{
+    color: var(--primary-color) !important;
+}
 
 /* -----media query------------- */
 
