@@ -1,0 +1,20 @@
+.single_blog_details{
+    padding: 100px 0;
+}
+.single_blog_img img{
+    width: 100%;
+}
+.order_list ol{
+    list-style: none;
+}
+/* .un_order_list ul{
+    list-style: circle;
+} */
+.list_title{
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.comment_submit_btn{
+    width: 100px;
+}

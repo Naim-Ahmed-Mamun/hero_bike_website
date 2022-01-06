@@ -21,6 +21,7 @@ import ManageAllOrder from './pages/Dashboard/ManageAllOrder/ManageAllOrder';
 import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
 import ManageProduct from './pages/Dashboard/ManageProduct/ManageProduct';
 import AddProduct from './pages/Dashboard/AddProduct/AddProduct';
+import SingleBlogDetails from './pages/Home/Blogs/SingleBlogDetails/SingleBlogDetails';
 // import useAuth from './hooks/useAuth';
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
               </Route>
             </Route>
             <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/blog/:id" element={<SingleBlogDetails></SingleBlogDetails>}></Route>
             <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/bookProduct/:id" element={<PrivateRoute>
               <BookProduct></BookProduct>

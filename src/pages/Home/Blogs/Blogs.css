@@ -1,0 +1,20 @@
+.blogs{
+    padding-bottom: 100px;
+}
+.date_btn {
+    transform: translateY(-40px);
+}
+.blog_title{
+    /* color: var(--paragraph-color); */
+    color: var(--dark-color);
+}
+.user_icon,.comments_icon{
+    color: var(--primary-color);
+}
+.blog_name,.blog_comments{
+    font-weight: 500;
+    color: var(--dark-color);
+}
+.blog_shortDesc{
+    color: var(--paragraph-color);
+}
