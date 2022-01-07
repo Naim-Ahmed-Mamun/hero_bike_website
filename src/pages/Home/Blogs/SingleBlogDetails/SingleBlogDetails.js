@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Spinner } from 'react-bootstrap';
+// import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import Footer from '../../../../components/shared/Footer/Footer';
 import Header from '../../../../components/shared/Header/Header';
-import useAuth from '../../../../hooks/useAuth';
+// import useAuth from '../../../../hooks/useAuth';
 import useBlogs from '../../../../hooks/useBlogs';
 import './singleBlogDetails.css';
 
@@ -19,7 +19,7 @@ const SingleBlogDetails = () => {
    const { blogsData } = useBlogs();
    const blogItem = blogsData.find(blog => blog.id === idNum);
    const { register, handleSubmit,reset } = useForm();
-   const { user } = useAuth();
+   // const { user } = useAuth();
    const [showComment, setShowComment] = useState([]);
    const [loading,setLoading] = useState(false);
    // console.log(blogItem);
@@ -33,7 +33,7 @@ const SingleBlogDetails = () => {
             setLoading(false);
          })
 
-   }, [blogItem.title])
+   }, [blogItem.title,loading])
 
    // submit form
    const onSubmit = data => {
@@ -55,12 +55,6 @@ const SingleBlogDetails = () => {
             reset();
          })
    };
-
-   if(loading){
-      return <Spinner animation="grow" />
-   }
-
-
 
   
 
@@ -137,11 +131,11 @@ const SingleBlogDetails = () => {
                            <form onSubmit={handleSubmit(onSubmit)}>
                               <div className="row">
                                  <div className="col-lg-6">
-                                    <input defaultValue={user?.displayName} {...register("name")}
+                                    <input {...register("name")}
                                        required placeholder="Name" />
                                  </div>
                                  <div className="col-lg-6">
-                                    <input defaultValue={user?.email} {...register("email")}
+                                    <input {...register("email")}
                                        required placeholder="Email" />
                                  </div>
                               </div>

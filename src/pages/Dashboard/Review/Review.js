@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth';
 import { Rating } from 'react-simple-star-rating';
+import { HashLink } from 'react-router-hash-link';
 
 const Review = () => {
    const { register, handleSubmit, reset } = useForm();
@@ -37,7 +38,8 @@ const Review = () => {
                   type: 'success',
                   title: 'Review Added Successfully',
                })
-               reset()
+               reset();
+               <HashLink to="/home#testimonials"></HashLink>;
             }
          })
       if (user.email) {

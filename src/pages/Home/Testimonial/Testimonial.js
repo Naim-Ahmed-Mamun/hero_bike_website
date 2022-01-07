@@ -55,7 +55,7 @@ const Testimonial = () => {
 
    return (
       <>
-         <div className="testimonial">
+         <div className="testimonial" id="testimonials">
             <div className="container">
                <div className="sec_title mb-4" data-aos="fade-up">
                   <h2>Testimonial</h2>
@@ -72,12 +72,6 @@ const Testimonial = () => {
                            <div className="p-3 shadow testimonial_item rounded">
                               <p>{testimonial?.review}</p>
                               <h3>{testimonial?.name}</h3>
-                              {/* <Rating
-                                 emptySymbol="far fa-star"
-                                 fullSymbol="fas fa-star"
-                                 initialRating={testimonial?.rating}
-                                 readonly
-                              /> */}
                               <Rating readonly size={30} ratingValue={testimonial?.ratings} />
                            </div>
                         </div>

@@ -7,3 +7,6 @@
 .details{
     color: var(--paragraph-color);
 }
+.place_order_btn{
+    text-align: right;
+}
