@@ -25,3 +25,13 @@
     padding-right: 50px;
     color: var(--dark-color);
 }
+
+/* ----- responsive--------- */
+@media (max-width:991px){
+    .single_blog_header{
+        flex-direction: column !important;
+    }
+    .name_comments{
+        padding-top: 20px;
+    }
+}

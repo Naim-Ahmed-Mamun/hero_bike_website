@@ -1,4 +1,4 @@
-import { faCalendar, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useEffect } from 'react';
@@ -66,7 +66,7 @@ const SingleBlogDetails = () => {
                <div className="row">
                   <div className="col-lg-10 mx-auto">
 
-                     <div className="mb-4 d-flex align-items-center justify-content-between" data-aos="fade-up">
+                     <div className="mb-4 d-flex align-items-center justify-content-between single_blog_header" data-aos="fade-up">
                         <div>
                            <h2>{blogItem.title}</h2>
                         </div>
@@ -74,11 +74,8 @@ const SingleBlogDetails = () => {
                            <div className="name_comments d-flex align-items-center mb-3">
                               <div className="name">
                                  <FontAwesomeIcon className="user_icon me-2" icon={faUser} />
-                                 <span className='blog_name'>{blogItem.blogerName}</span>
-                              </div>
-                              <div className="comments">
-                                 <FontAwesomeIcon className="comments_icon me-2 ms-4" icon={faCalendar} />
-                                 <span className='blog_comments'>Comments</span>
+                                 {/* <span className='blog_name'>{blogItem.blogerName}</span> */}
+                                <span className='blog_name'>{blogItem.blogerName}</span>
                               </div>
                            </div>
                         </div>

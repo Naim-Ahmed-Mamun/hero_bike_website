@@ -15,22 +15,22 @@ const CompanyLogos = () => {
       <div className="logos">
         <Container>
           <div className="row align-items-center" data-aos="fade-up">
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_1} alt="" />
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_2} alt="" />
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_3} alt="" />
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_4} alt="" />
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_5} alt="" />
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-2 col-md-4 col-sm-6 mb-3">
               <img src={logo_6} alt="" />
             </div>
           </div>

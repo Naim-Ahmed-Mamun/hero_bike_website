@@ -15,3 +15,12 @@
     font-weight: 500;
     font-size: 20px;
 }
+
+/* ---- responsive--------- */
+@media (max-width:991px){
+    .counter_bg{
+        background: var(--dark-color);
+        height: auto;
+        padding: 50px 0;
+    }
+}
